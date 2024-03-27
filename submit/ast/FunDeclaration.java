@@ -4,11 +4,11 @@ import java.util.List;
 
 public class FunDeclaration implements Declaration, Node {
 
-    private final VarType type;
+    private final FunType type;
     private final String id;
     private final List<String> params;
 
-    public FunDeclaration(VarType type, String id, List<String> params ) {
+    public FunDeclaration(FunType type, String id, List<String> params ) {
 
         this.type = type;
         this.id = id;

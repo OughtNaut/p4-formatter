@@ -7,7 +7,7 @@ int c[    3
 
 ];
 
-int fie  () {
+void fie  () {
 
 print(a);
                    }
