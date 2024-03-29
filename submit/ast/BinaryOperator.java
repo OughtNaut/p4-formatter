@@ -4,6 +4,8 @@
  */
 package submit.ast;
 
+import java.util.Objects;
+
 /**
  *
  * @author edwajohn
@@ -28,8 +30,13 @@ public class BinaryOperator implements Expression {
   @Override
   public void toCminus(StringBuilder builder, String prefix) {
     lhs.toCminus(builder, prefix);
-    builder.append(" ").append(type).append(" ");
-    rhs.toCminus(builder, prefix);
+    if (!(Objects.equals(type.toString(), "--") || Objects.equals(type.toString(),"++"))) {
+      builder.append(" ");
+    }
+    builder.append(type).append(" ");
+    if (rhs != null) {
+      rhs.toCminus(builder, prefix);
+    }
   }
 
 }

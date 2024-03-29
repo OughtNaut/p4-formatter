@@ -64,12 +64,12 @@ public class Main {
         LOGGER.info("");
         LOGGER.info("Formatted code:");
         LOGGER.info("");
-//        StringBuilder builder = new StringBuilder();
-//        try {
-//            ast.toCminus(builder, "");
-//        } finally {
-//            LOGGER.info(builder.toString());
-//        }
+        StringBuilder builder = new StringBuilder();
+        try {
+            ast.toCminus(builder, "");
+        } finally {
+            LOGGER.info(builder.toString());
+        }
     }
 
 }

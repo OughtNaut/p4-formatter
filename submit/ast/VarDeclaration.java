@@ -26,7 +26,7 @@ public class VarDeclaration implements Declaration, Node {
   }
 
   public void toCminus(StringBuilder builder, final String prefix) {
-    builder.append(prefix);
+    builder.append("\n").append(prefix);
     if (isStatic) {
       builder.append("static ");
     }
@@ -41,7 +41,7 @@ public class VarDeclaration implements Declaration, Node {
       }
     }
     builder.delete(builder.length() - 2, builder.length());
-    builder.append(";\n");
+    builder.append(";");
   }
 
 }
