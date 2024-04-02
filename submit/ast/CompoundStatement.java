@@ -12,15 +12,18 @@ public class CompoundStatement implements Statement, Node{
     }
     @Override
     public void toCminus(StringBuilder builder, String prefix) {
-        builder.append("\n").append(prefix);
-        builder.append("{").append("\n").append(" ");
+
+        builder.append("\n").append(prefix).append("{");
+        prefix += "  ";
+
         for (VarDeclaration declaration : declarations) {
-            declaration.toCminus(builder, "");
+            declaration.toCminus(builder, prefix);
         }
         for (Statement statement : statements) {
             if (statement == null) break;
-            statement.toCminus(builder, "");
+            statement.toCminus(builder, prefix);
         }
-        builder.append("\n}");
+        prefix = prefix.substring(2);
+        builder.append("\n").append(prefix).append("}");
     }
 }

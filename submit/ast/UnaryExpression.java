@@ -12,9 +12,9 @@ public class UnaryExpression implements Node, Expression{
     }
     @Override
     public void toCminus(StringBuilder builder, String prefix) {
-        builder.append(prefix);
+//        builder.append(prefix);
         for (String u : unaryops) {
-            builder.append(u);
+            builder.append(u).append("");
         }
         factor.toCminus(builder,prefix);
 

@@ -15,7 +15,7 @@ public class TermExpression implements Node, Expression {
     public void toCminus(StringBuilder builder, String prefix) {
         for (int i = 0; i < mulops.size(); i++) {
             unaryExpressions.get(i).toCminus(builder,prefix);
-            builder.append(mulops.get(i));
+            builder.append(" ").append(mulops.get(i)).append(" ");
         }
         unaryExpressions.get(unaryExpressions.size()-1).toCminus(builder,prefix);
     }

@@ -6,12 +6,12 @@ import java.util.List;
 
 public class FunDeclaration implements Declaration, Node {
 
-    private final FunType type;
+    private final VarType type;
     private final String id;
     private final List<CminusParser.ParamContext> params;
     private final Statement statement;
 
-    public FunDeclaration(FunType type, String id, List<CminusParser.ParamContext> params, Statement statement ) {
+    public FunDeclaration(VarType type, String id, List<CminusParser.ParamContext> params, Statement statement ) {
 
         this.type = type;
         this.id = id;
@@ -21,8 +21,12 @@ public class FunDeclaration implements Declaration, Node {
     }
     @Override
     public void toCminus(StringBuilder builder, String prefix) {
-
-        builder.append("\n").append(prefix).append(type.toString()).append(" ");
+        builder.append("\n").append(prefix);
+        if (type == null) {
+            builder.append("\n").append("void").append(" ");
+        } else {
+            builder.append("\n").append(type).append(" ");
+        }
         builder.append(id).append('(');
         if (params.size() <= 1 ) {
             if (params.size()==0) {
@@ -40,9 +44,9 @@ public class FunDeclaration implements Declaration, Node {
             builder.delete(builder.length()-2,builder.length());
         }
         builder.append(")");
-        statement.toCminus(builder, "");
+        statement.toCminus(builder, prefix);
 
-        builder.append("\n");
+//        builder.append("\n");
     }
 
 }

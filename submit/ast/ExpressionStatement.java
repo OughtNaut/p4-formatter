@@ -13,10 +13,12 @@ public class ExpressionStatement implements Statement, Node {
 
     @Override
     public void toCminus(StringBuilder builder, String prefix) {
-        builder.append("\n").append(prefix);
 
         if (expression != null) {
+            builder.append("\n").append(prefix);
             expression.toCminus(builder, "");
+            builder.append(";");
+            return;
         }
         builder.append(";");
 

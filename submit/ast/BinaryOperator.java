@@ -33,9 +33,13 @@ public class BinaryOperator implements Expression {
     if (!(Objects.equals(type.toString(), "--") || Objects.equals(type.toString(),"++"))) {
       builder.append(" ");
     }
-    builder.append(type).append(" ");
+    builder.append(type);
+    if (!(Objects.equals(type.toString(), "--") || Objects.equals(type.toString(),"++"))) {
+      builder.append(" ");
+    }
     if (rhs != null) {
       rhs.toCminus(builder, prefix);
+
     }
   }
 

@@ -12,7 +12,6 @@ public class Factor implements Node, Expression{
 
     @Override
     public void toCminus(StringBuilder builder, String prefix) {
-        builder.append(prefix);
         if (immutable != null) {
             immutable.toCminus(builder,prefix);
         } else {

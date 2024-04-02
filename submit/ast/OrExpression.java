@@ -11,11 +11,9 @@ public class OrExpression implements Expression, Node{
     }
     @Override
     public void toCminus(StringBuilder builder, String prefix) {
-        System.out.println(this.andExpressions.size() + " size inside constructor");
-        builder.append(prefix);
         for (int i = 0; i < andExpressions.size()-1; i++) {
             andExpressions.get(i).toCminus(builder,prefix);
-            builder.append("||");
+            builder.append(" ").append("||").append(" ");
         }
         andExpressions.get(andExpressions.size()-1).toCminus(builder,prefix);
     }

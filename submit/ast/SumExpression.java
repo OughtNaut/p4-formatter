@@ -16,7 +16,7 @@ public class SumExpression implements Node, Expression{
         if (sumops.size()>0) {
             for (int i = 0; i < sumops.size(); i++) {
                 termExpressions.get(i).toCminus(builder,prefix);
-                builder.append(sumops.get(i));
+                builder.append(" ").append(sumops.get(i)).append(" ");
             }
         }
         termExpressions.get(termExpressions.size()-1).toCminus(builder,prefix);

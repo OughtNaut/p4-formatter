@@ -13,9 +13,11 @@ public class Immutable implements Expression, Node{
 
     @Override
     public void toCminus(StringBuilder builder, String prefix) {
-        builder.append(prefix);
+//        builder.append(prefix);
         if (expression != null) {
+            builder.append("(");
             expression.toCminus(builder,prefix);
+            builder.append(")");
         } else if (call != null){
             call.toCminus(builder,prefix);
         }
