@@ -16,6 +16,10 @@ public class UnaryRelExpression implements Node, Expression{
 
     @Override
     public void toCminus(StringBuilder builder, String prefix) {
-
+        builder.append(prefix);
+        for (TerminalNode bang : bangs) {
+            builder.append(bang.getText());
+        }
+        relExpression.toCminus(builder, prefix);
     }
 }

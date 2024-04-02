@@ -13,7 +13,6 @@ public class OrExpression implements Expression, Node{
     public void toCminus(StringBuilder builder, String prefix) {
         System.out.println(this.andExpressions.size() + " size inside constructor");
         builder.append(prefix);
-//Why isnt this working check later
         for (int i = 0; i < andExpressions.size()-1; i++) {
             andExpressions.get(i).toCminus(builder,prefix);
             builder.append("||");

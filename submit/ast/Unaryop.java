@@ -6,6 +6,6 @@ public class Unaryop implements Expression{
 
     @Override
     public void toCminus(StringBuilder builder, String prefix) {
-
+        System.out.println("lama");
     }
 }

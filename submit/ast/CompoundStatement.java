@@ -18,6 +18,7 @@ public class CompoundStatement implements Statement, Node{
             declaration.toCminus(builder, "");
         }
         for (Statement statement : statements) {
+            if (statement == null) break;
             statement.toCminus(builder, "");
         }
         builder.append("\n}");

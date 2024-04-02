@@ -13,6 +13,14 @@ public class Immutable implements Expression, Node{
 
     @Override
     public void toCminus(StringBuilder builder, String prefix) {
-
+        builder.append(prefix);
+        if (expression != null) {
+            expression.toCminus(builder,prefix);
+        } else if (call != null){
+            call.toCminus(builder,prefix);
+        }
+        else {
+            builder.append(constant);
+        }
     }
 }
